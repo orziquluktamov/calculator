@@ -1,75 +1,137 @@
 <html>
 <head>
    <title>Calc</title>
-
-<script language=javascript type="text/javascript">
-
-var plus,minus,divide,multiply,max,pow,min,avg
-
-function initialize(){
- plus=document.calc.operator.options[0]
- minus=document.calc.operator.options[1]
- divide=document.calc.operator.options[2]
- multiply=document.calc.operator.options[3]
- max=document.calc.operator.options[4]
- pow=document.calc.operator.options[5]
- min=document.calc.operator.options[6]
- avg=document.calc.operator.options[7]
-}
-
-function calculate(){
-    a = parseInt(document.calc.val1.value)
-    b = parseInt(document.calc.val2.value)
-    if (plus.selected)
-        document.calc.answer.value = a + b
-    if (minus.selected)
-        document.calc.answer.value = a - b
-    if (divide.selected)
-        document.calc.answer.value = a / b
-    if (multiply.selected)
-        document.calc.answer.value = a * b
-	if (max.selected)
-		document.calc.answer.value = Math.max(a,b)
-	if (pow.selected)
-		document.calc.answer.value = Math.pow(a,b)
-	if (min.selected)
-		document.calc.answer.value = Math.min(a,b)
-	if (avg.selected)
-		document.calc.answer.value = (a + b) / 2
-}
-
-</script>
+   <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body onLoad="initialize()">
-<h2>Calc</h2>
+<body>
+    <table class="calculator table">
+		<thead>			
+			<tr>
+				<td colspan=7>
+					<div class="output form-group">
+						<input type="text" class="ans form-control" readonly name="">
+					</div>				
+				</td>
+			</tr>
+		</thead>
+		<tbody class="actions">		
+			<tr>
+				<td colspan=3></td>
+				<td>
+					<button class="btn btn-op" data-value='*('>(</button>				
+					
+				</td>
+				<td>
+					<button class="btn btn-op" data-value=')'>)</button>				
+					
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='%'>%</button>			
+					
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='ce'>CE</button>				
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button class="btn btn-op" data-value='inv'>Inv</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='sin'>sin</button>			
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='ln'>ln</button>				
+				</td>
+				<td>
+					<button class="btn" data-value='7'>7</button>
+				</td>
+				<td>
+					<button class="btn" data-value='8'>8</button>				
+				</td>
+				<td>
+					<button class="btn" data-value='9'>9</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='/'>&#x00f7;</button>				
+					
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<button class="btn btn-op" data-value='*3.14'>&pi;</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='cos'>cos</button>			
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='log'>log</button>				
+				</td>
+				<td>
+					<button class="btn" data-value='4'>4</button>
+				</td>
+				<td>
+					<button class="btn" data-value='5'>5</button>				
+				</td>
+				<td>
+					<button class="btn" data-value='6'>6</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='*'>	&times;</button>
+				</td>
+			</tr>
 
-Enter a number in the first box and a number in the second box and select the answer button to see the answer.
-<br>
-Change the operation via the dropdown selection box if desired.
-<form name="calc" action="post">
-<input type=text name=val1 size=10>
-
-<select name=operator>
-<option value=plus>+
-<option value=minus>-
-<option value=divide>/
-<option value=multiply>*
-<option value=max>max
-<option value=pow>**
-<option value=min>min
-<option value=avg>avg
-</select>
-
-<input type=text name=val2 size=10>
-=
-<input type=text name=answer size=10>
-<input type=button value="show answer" onClick="calculate()">
-</form>
-
-<br><br>
-
-
+			<tr>
+				<td>
+					<button class="btn btn-op" data-value='e'>e</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='tan'>tan</button>			
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='radic'>&radic;</button>				
+				</td>
+				<td>
+					<button class="btn" data-value='3'>3</button>
+				</td>
+				<td>
+					<button class="btn" data-value='2'>2</button>				
+				</td>
+				<td>
+					<button class="btn" data-value='1'>1</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='-'>-</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button class="btn btn-op" data-value='exp'>EXP</button>			
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='x^2'>x&#xb2;</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='**'>x&#94;</button>		
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='.'>.</button>
+				</td>
+				<td>
+					<button class="btn" data-value='0'>0</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='='>=</button>				
+				</td>
+				<td>
+					<button class="btn btn-op" data-value='+'>+</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
